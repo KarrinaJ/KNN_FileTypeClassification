@@ -45,8 +45,6 @@ for file in list_of_files:
 
 
 # Extracting the file signature from each file in dataset and storing in an array
-magicNumbers = [] #going to store the hexadecimal representation in this array
-
 #The KNNClassifier can't convert hex strings to a float, so I will convert the hex to a decimal
 #to help with data type conversion. That's what this array will hold
 magicNumberDecimal = [] 
@@ -60,7 +58,6 @@ for file_name in list_of_files: #going to read each file individually to store i
                 file_signature = file.read(4)
                 fileSigToHex = file_signature.hex() #need to convert the bytes to hexadecimal string
                 fileSigToDec = int(fileSigToHex,16) #converting hex string to decimal
-                magicNumbers.append(fileSigToHex)
                 magicNumberDecimal.append(fileSigToDec)
         except Exception as e:
             print(f"An error occurred while processing {file_path}: {str(e)}")
